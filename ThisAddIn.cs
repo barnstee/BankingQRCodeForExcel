@@ -61,7 +61,7 @@ namespace SwissQRCode
                     File.Delete(picturePath);
                 }
                 qrCodeAsBitmap.Save(picturePath, ImageFormat.Bmp);
-                sheet.Shapes.AddPicture(picturePath, MsoTriState.msoFalse, MsoTriState.msoCTrue, 10, 10, 130, 130);
+                sheet.Shapes.AddPicture(picturePath, MsoTriState.msoFalse, MsoTriState.msoCTrue, 180, 40, 140, 140);
                 File.Delete(picturePath);
             }
             catch (Exception ex)

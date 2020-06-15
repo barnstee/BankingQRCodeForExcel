@@ -211,7 +211,7 @@
       <SubType>Code</SubType>
     </Compile>
     <None Include="SwissQRBill.xlsx" />
-    <None Include="SwissQRCode_TemporaryKey.pfx" />
+    <None Include="SwissQRCode_1_TemporaryKey.pfx" />
     <None Include="ThisAddIn.Designer.xml">
       <DependentUpon>ThisAddIn.cs</DependentUpon>
     </None>
@@ -231,10 +231,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>SwissQRCode_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>SwissQRCode_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>8E4D3B60DB50723AD9FF0B00D6275493F61653D7</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>D351D397694C6757B4EE8A533E1F34911A18C9BB</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
