@@ -44,6 +44,7 @@
     <FriendlyName>SwissQRCode</FriendlyName>
     <OfficeApplicationDescription />
     <LoadBehavior>3</LoadBehavior>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -93,6 +94,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
     <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <!--
     This section defines properties that are set when the "Release" configuration is selected.
@@ -117,6 +119,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
     <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <!--
     This section specifies references for the project.
@@ -125,9 +128,6 @@
     <Reference Include="Accessibility" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="QRCoder, Version=1.3.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\QRCoder.1.3.9\lib\net40\QRCoder.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -201,7 +201,6 @@
     <EmbeddedResource Include="RibbonButton.resx">
       <DependentUpon>RibbonButton.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -209,7 +208,16 @@
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="QRCoder\AbstractQRCode.cs" />
+    <Compile Include="QRCoder\DataTooLongException.cs" />
+    <Compile Include="QRCoder\PayloadGenerator.cs" />
+    <Compile Include="QRCoder\QRCode.cs" />
+    <Compile Include="QRCoder\QRCodeData.cs" />
+    <Compile Include="QRCoder\QRCodeGenerator.cs" />
+    <Compile Include="QRCoder\Stream4Methods.cs" />
+    <Compile Include="QRCoder\String4Methods.cs" />
     <Compile Include="RibbonButton.cs">
       <SubType>Component</SubType>
     </Compile>

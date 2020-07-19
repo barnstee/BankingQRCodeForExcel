@@ -2,13 +2,11 @@
 using Microsoft.Office.Tools.Excel;
 using Microsoft.Office.Tools.Ribbon;
 using QRCoder;
-using SwissQRCode.Properties;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
-using static QRCoder.PayloadGenerator;
 
 namespace SwissQRCode
 {
@@ -23,36 +21,36 @@ namespace SwissQRCode
             try
             {
                 Worksheet sheet = Globals.Factory.GetVstoObject(Globals.ThisAddIn.Application.ActiveWorkbook.ActiveSheet);
-            
+
                 string contactIBAN = sheet.get_Range("A4").Value2.ToString();
-                SwissQrCode.Iban iban = new SwissQrCode.Iban(contactIBAN, SwissQrCode.Iban.IbanType.Iban);
+                PayloadGenerator.SwissQrCode.Iban iban = new PayloadGenerator.SwissQrCode.Iban(contactIBAN, PayloadGenerator.SwissQrCode.Iban.IbanType.Iban);
 
                 string contactName = sheet.get_Range("A5").Value2.ToString();
                 string contactStreet = sheet.get_Range("A6").Value2.ToString();
                 string contactPlace = sheet.get_Range("A7").Value2.ToString();
-                SwissQrCode.Contact contact = new SwissQrCode.Contact(contactName, "CH", contactStreet, contactPlace);
+                PayloadGenerator.SwissQrCode.Contact contact = new PayloadGenerator.SwissQrCode.Contact(contactName, "CH", contactStreet, contactPlace);
 
                 string debitorName = sheet.get_Range("A10").Value2.ToString();
                 string debitorStreet = sheet.get_Range("A11").Value2.ToString();
                 string debitorPlace = sheet.get_Range("A12").Value2.ToString();
-                SwissQrCode.Contact debitor = new SwissQrCode.Contact(debitorName, "CH", debitorStreet, debitorPlace);
+                PayloadGenerator.SwissQrCode.Contact debitor = new PayloadGenerator.SwissQrCode.Contact(debitorName, "CH", debitorStreet, debitorPlace);
 
                 string additionalInfo1 = sheet.get_Range("F9").Value2.ToString();
                 string additionalInfo2 = sheet.get_Range("F10").Value2.ToString();
-                SwissQrCode.AdditionalInformation additionalInformation = new SwissQrCode.AdditionalInformation(additionalInfo1, additionalInfo2);
+                PayloadGenerator.SwissQrCode.AdditionalInformation additionalInformation = new PayloadGenerator.SwissQrCode.AdditionalInformation(additionalInfo1, additionalInfo2);
 
-                SwissQrCode.Reference reference = new SwissQrCode.Reference(SwissQrCode.Reference.ReferenceType.NON);
+                PayloadGenerator.SwissQrCode.Reference reference = new PayloadGenerator.SwissQrCode.Reference(PayloadGenerator.SwissQrCode.Reference.ReferenceType.NON);
 
-                SwissQrCode.Currency currency = SwissQrCode.Currency.CHF;
+                PayloadGenerator.SwissQrCode.Currency currency = PayloadGenerator.SwissQrCode.Currency.CHF;
 
                 decimal amount = (decimal) sheet.get_Range("B16").Value2;
 
-                SwissQrCode generator = new SwissQrCode(iban, currency, contact, reference, additionalInformation, debitor, amount);
+                PayloadGenerator.SwissQrCode generator = new PayloadGenerator.SwissQrCode(iban, currency, contact, reference, additionalInformation, debitor, amount);
 
                 QRCodeGenerator qrGenerator = new QRCodeGenerator();
                 QRCodeData qrCodeData = qrGenerator.CreateQrCode(generator.ToString(), QRCodeGenerator.ECCLevel.M);
                 QRCode qrCode = new QRCode(qrCodeData);
-                Bitmap qrCodeAsBitmap = qrCode.GetGraphic(20, Color.Black, Color.White, Resources.CH_Kreuz_7mm, 14, 1);
+                Bitmap qrCodeAsBitmap = qrCode.GetGraphic(20, Color.Black, Color.White, Properties.Resources.CH_Kreuz_7mm, 14, 1);
 
                 string picturePath = Path.GetTempPath() + "qrcode.bmp";
                 if (File.Exists(picturePath))
