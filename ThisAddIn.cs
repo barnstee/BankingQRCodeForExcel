@@ -1,6 +1,7 @@
-﻿using System.Runtime.InteropServices;
+﻿
+using System.Runtime.InteropServices;
 
-namespace SwissQRCode
+namespace BankingQRCodeForExcel
 {
     public partial class ThisAddIn
     {
@@ -12,6 +13,7 @@ namespace SwissQRCode
         /// </summary>
         private void InternalStartup()
         {
+            // nothing to do
         }
 
         #endregion
@@ -39,10 +41,9 @@ namespace SwissQRCode
     [ClassInterface(ClassInterfaceType.None)]
     public class AddInUtilities : IAddInUtilities
     {
-        // This method tries to write a string to cell A1 in the active worksheet.
         public void Generate()
         {
-            QRCodeGeneratorWrapper.Generate();
+            QRCodeGeneratorWrapper.GenerateSwissQRCode();
         }
     }
 }

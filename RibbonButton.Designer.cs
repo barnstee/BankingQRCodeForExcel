@@ -1,4 +1,5 @@
-﻿namespace SwissQRCode
+﻿
+namespace BankingQRCodeForExcel
 {
     partial class RibbonButton : Microsoft.Office.Tools.Ribbon.RibbonBase
     {
@@ -37,7 +38,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RibbonButton));
             this.tab1 = this.Factory.CreateRibbonTab();
             this.Button = this.Factory.CreateRibbonGroup();
-            this.buttonGenerate = this.Factory.CreateRibbonButton();
+            this.buttonSwiss = this.Factory.CreateRibbonButton();
+            this.buttonSEPA = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.Button.SuspendLayout();
             this.SuspendLayout();
@@ -52,17 +54,26 @@
             // 
             // Button
             // 
-            this.Button.Items.Add(this.buttonGenerate);
-            this.Button.Label = "Swiss QR Code";
+            this.Button.Items.Add(this.buttonSwiss);
+            this.Button.Items.Add(this.buttonSEPA);
+            this.Button.Label = "Banking QRCode";
             this.Button.Name = "Button";
             // 
-            // buttonGenerate
+            // buttonSwiss
             // 
-            this.buttonGenerate.Image = ((System.Drawing.Image)(resources.GetObject("buttonGenerate.Image")));
-            this.buttonGenerate.Label = "Generate";
-            this.buttonGenerate.Name = "buttonGenerate";
-            this.buttonGenerate.ShowImage = true;
-            this.buttonGenerate.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonGenerate_Click);
+            this.buttonSwiss.Image = ((System.Drawing.Image)(resources.GetObject("buttonSwiss.Image")));
+            this.buttonSwiss.Label = "Generate Swiss";
+            this.buttonSwiss.Name = "buttonSwiss";
+            this.buttonSwiss.ShowImage = true;
+            this.buttonSwiss.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonSwiss_Click);
+            // 
+            // buttonSEPA
+            // 
+            this.buttonSEPA.Image = ((System.Drawing.Image)(resources.GetObject("buttonSEPA.Image")));
+            this.buttonSEPA.Label = "Generate SEPA";
+            this.buttonSEPA.Name = "buttonSEPA";
+            this.buttonSEPA.ShowImage = true;
+            this.buttonSEPA.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonSEPA_Click);
             // 
             // RibbonButton
             // 
@@ -82,7 +93,8 @@
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup Button;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonGenerate;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonSwiss;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonSEPA;
     }
 
     partial class ThisRibbonCollection

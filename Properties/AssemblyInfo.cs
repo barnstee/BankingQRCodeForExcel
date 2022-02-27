@@ -1,12 +1,12 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("SwissQRCode")]
-[assembly: AssemblyDescription("QR code generator for Excel to be used in the Swiss banking sector")]
+[assembly: AssemblyTitle("BankingQRCodeForExcel")]
+[assembly: AssemblyDescription("QR code generator for Excel to be used in the Swiss and SEPA banking sector")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SwissQRCode")]
-[assembly: AssemblyCopyright("Copyright © 2020 Erich Barnstedt")]
+[assembly: AssemblyProduct("BankingQRCodeForExcel")]
+[assembly: AssemblyCopyright("Copyright © 2022 Erich Barnstedt")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,17 +1,24 @@
-﻿using Microsoft.Office.Tools.Ribbon;
+﻿
+using Microsoft.Office.Tools.Ribbon;
 
-namespace SwissQRCode
+namespace BankingQRCodeForExcel
 {
 
     public partial class RibbonButton
     {
         private void RibbonButton_Load(object sender, RibbonUIEventArgs e)
         {
+            // nothing to do
         }
 
-        private void buttonGenerate_Click(object sender, RibbonControlEventArgs e)
+        private void buttonSwiss_Click(object sender, RibbonControlEventArgs e)
         {
-            QRCodeGeneratorWrapper.Generate();
+            QRCodeGeneratorWrapper.GenerateSwissQRCode();
+        }
+
+        private void buttonSEPA_Click(object sender, RibbonControlEventArgs e)
+        {
+            QRCodeGeneratorWrapper.GenerateSEPAQRCode();
         }
     }
 }
