@@ -1,5 +1,6 @@
-# SwissQRCodeExcel
-QR code generator for Microsoft Excel to be used in the Swiss and SEPA/EU banking sector.
+# Banking QR Code Generator For Excel
+
+A QR code generator for Microsoft Excel to be used in the Swiss and SEPA/EU banking sector.
 
 ## Background
 
